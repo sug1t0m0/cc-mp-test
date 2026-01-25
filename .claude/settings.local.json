@@ -3,7 +3,8 @@
     "allow": [
       "mcp__github__get_file_contents",
       "WebSearch",
-      "WebFetch(domain:incident.io)"
+      "WebFetch(domain:incident.io)",
+      "mcp__github__create_repository"
     ]
   }
 }

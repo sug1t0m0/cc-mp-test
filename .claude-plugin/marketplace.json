@@ -1,0 +1,22 @@
+{
+  "name": "cc-mp-test",
+  "owner": {
+    "name": "sug1t0m0"
+  },
+  "metadata": {
+    "description": "Claude Code 開発支援プラグイン集",
+    "pluginRoot": "./plugins"
+  },
+  "plugins": [
+    {
+      "name": "session-summary",
+      "source": "./session-summary",
+      "description": "セッションを要約・エクスポート。学びを記録し、どのプロジェクトでも使える。"
+    },
+    {
+      "name": "workflow-helper",
+      "source": "./workflow-helper",
+      "description": "Git worktreeとWezTermを活用した並列開発ワークフロー支援ツール"
+    }
+  ]
+}

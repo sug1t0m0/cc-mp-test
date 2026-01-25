@@ -1,0 +1,10 @@
+{
+  "name": "session-summary",
+  "description": "Summarize and export your Claude Code sessions. Track learnings, decisions, and progress across any project.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Your Name"
+  },
+  "keywords": ["session", "summary", "export", "notes", "productivity"],
+  "repository": "https://github.com/your-username/session-summary"
+}

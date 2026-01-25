@@ -1,0 +1,51 @@
+# cc-mp-test
+
+Claude Code 開発支援プラグイン集
+
+## プラグイン一覧
+
+| プラグイン | 説明 |
+|-----------|------|
+| **session-summary** | セッションを要約・エクスポート。学びを記録し、どのプロジェクトでも使える。 |
+| **workflow-helper** | Git worktreeとWezTermを活用した並列開発ワークフロー支援ツール |
+
+## インストール
+
+### 1. マーケットプレイスを追加
+
+```bash
+/plugin marketplace add sug1t0m0/cc-mp-test
+```
+
+### 2. プラグインをインストール
+
+```bash
+# 個別にインストール
+/plugin install session-summary@cc-mp-test
+/plugin install workflow-helper@cc-mp-test
+```
+
+## プラグイン詳細
+
+### session-summary
+
+セッションの要約とエクスポート機能を提供します。
+
+**コマンド:**
+- `/session-summary:setup` - Global gitignore に .claude-sessions を追加
+- `/session-summary:summary` - セッションを要約
+- `/session-summary:export` - セッション要約をMarkdownファイルに保存
+- `/session-summary:learnings` - セッションから学び（TIL）を抽出
+
+### workflow-helper
+
+Git worktreeとWezTermを活用した並列開発ワークフローを支援します。
+
+**コマンド:**
+- `/workflow-helper:new-task [task-name]` - 新しいworktreeを作成し、WezTermで新ペインを開く
+- `/workflow-helper:list-tasks` - 現在のworktree一覧を表示
+- `/workflow-helper:cleanup-tasks [target]` - 完了したworktreeを削除
+
+## ライセンス
+
+MIT

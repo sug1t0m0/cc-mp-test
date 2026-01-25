@@ -1,0 +1,9 @@
+{
+  "name": "workflow-helper",
+  "description": "Git worktreeとWezTermを活用した並列開発ワークフロー支援ツール。新しいタスクの開始、worktree管理、WezTermペイン操作を提供します。",
+  "version": "1.0.0",
+  "author": {
+    "name": "tomohiko.sugiyama"
+  },
+  "keywords": ["git", "worktree", "wezterm", "workflow", "parallel-development"]
+}

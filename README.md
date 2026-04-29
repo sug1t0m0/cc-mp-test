@@ -2,6 +2,16 @@
 
 Claude Code 開発支援プラグイン集
 
+> [Dev Environment](https://github.com/users/sug1t0m0/projects/5) project の一部。
+> 関連 repo / 横断規約 / ADR は umbrella repo [my-dev-protocol](https://github.com/sug1t0m0/my-dev-protocol) を参照。
+
+## Responsibility
+
+Claude Code 開発支援プラグインの公開と配布:
+
+- plugin marketplace 設定 (Claude Code から `add` 可能な配布点)
+- AI 駆動開発フローを補助するプラグインの実装と保守
+
 ## プラグイン一覧
 
 | プラグイン | 説明 |

@@ -4,6 +4,11 @@ AI エージェントとのやり取りのパターンの入れ物。一つ目�
 
 段階的に移している ([sug1t0m0/cc-mp-test#3](https://github.com/sug1t0m0/cc-mp-test/issues/3))。段階 2 で output style `decisions` と skill `decision-artifacts` が入った。進め方の決まりと hook は段階 3 で入る。
 
+## 中身
+
+- **output style `decisions`** (`output-styles/decisions.md`): スマートフォンで読みやすい応答の形。短い文、階層の番号、幅に収まる図と表。`force-for-plugin: true` なので、この plugin が有効なリポジトリでは自動で適用される。settings.json の `outputStyle` に別の style が書いてあっても、system prompt に入るのはこの style (Claude Code v2.1.289 で確認)。`/output-style` の表示は settings の値を映すだけなので、`default` や別の名前が出ていても適用されている。使う側の settings.json に `outputStyle` があれば消してよい
+- **skill `decision-artifacts`** (`skills/decision-artifacts/SKILL.md`): 設問を出すセッションで、今の設問の解説とセッションの進捗の二つの artifact を保つ
+
 ## 入れ方
 
 リポジトリごとに入れる。使う側のリポジトリのフォルダで二つ打つ。

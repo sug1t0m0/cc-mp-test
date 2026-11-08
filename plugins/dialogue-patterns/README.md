@@ -1,8 +1,8 @@
 # dialogue-patterns
 
-AI エージェントとのやり取りのパターンの入れ物。一つ目のパターン `questions` は、設問を一つずつ番号で出す決まり、スマートフォンで読める応答の形、設問の解説と進捗を保つ二つの artifact からなる。
+AI エージェントとのやり取りのパターンの入れ物。一つ目のパターン `decisions` は、設問を一つずつ番号で出す決まり、スマートフォンで読める応答の形、設問の解説と進捗を保つ二つの artifact からなる。
 
-段階的に移している ([sug1t0m0/cc-mp-test#3](https://github.com/sug1t0m0/cc-mp-test/issues/3))。今は空の plugin で、中身はこれから入る。
+段階的に移している ([sug1t0m0/cc-mp-test#3](https://github.com/sug1t0m0/cc-mp-test/issues/3))。段階 2 で output style `decisions` と skill `decision-artifacts` が入った。進め方の決まりと hook は段階 3 で入る。
 
 ## 入れ方
 

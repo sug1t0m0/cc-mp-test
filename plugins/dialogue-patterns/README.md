@@ -2,11 +2,18 @@
 
 AI エージェントとのやり取りのパターンの入れ物。一つ目のパターン `questions` は、設問を一つずつ番号で出す決まり、スマートフォンで読める応答の形、設問の解説と進捗を保つ二つの artifact からなる。
 
-段階的に移している (sug1t0m0/cc-mp-test#3)。今は空の plugin で、中身はこれから入る。
+段階的に移している ([sug1t0m0/cc-mp-test#3](https://github.com/sug1t0m0/cc-mp-test/issues/3))。今は空の plugin で、中身はこれから入る。
 
 ## 入れ方
 
-使う側のリポジトリの `.claude/settings.json` に marketplace と plugin を書く。
+リポジトリごとに入れる。使う側のリポジトリのフォルダで二つ打つ。
+
+```bash
+claude plugin marketplace add sug1t0m0/cc-mp-test --scope project
+claude plugin install dialogue-patterns@cc-mp-test --scope project
+```
+
+二つとも、そのリポジトリの `.claude/settings.json` に書く。できたものをコミットする。
 
 ```json
 {
@@ -24,31 +31,45 @@ AI エージェントとのやり取りのパターンの入れ物。一つ目�
 }
 ```
 
-これをコミットしておけば、フォルダを信頼した machine では install の操作は要らない。この plugin は marketplace の中の相対パス (`./plugins/dialogue-patterns`) なので、Claude Code は marketplace の clone (`~/.claude/plugins/marketplaces/cc-mp-test/`) からその場で読む。`~/.claude/plugins/installed_plugins.json` に記録は作られない。
+同じ内容を手で書いても結果は同じ。コマンドで入れると、加えて `~/.claude/plugins/cache/cc-mp-test/dialogue-patterns/<コミット SHA>/` にコピーが置かれ、`~/.claude/plugins/installed_plugins.json` に scope project の記録ができる。この記録があると、下の更新コマンドが使える。
 
-初めてフォルダを開くとき、Claude Code は信頼の確認を出す。信頼すると marketplace を clone し、plugin が読まれる。
+### リポジトリを clone した人
+
+settings.json がコミットされていれば、フォルダを信頼した時点で marketplace が登録され、plugin が読まれる (cache にコピーされるが、install 記録は作られない)。更新コマンドを使えるようにするため、一度だけ打つ。settings.json は変わらない。
+
+```bash
+claude plugin install dialogue-patterns@cc-mp-test --scope project
+```
+
+### 注意
+
+- Claude Code v2.1.289 で確かめた。古い版で `/plugin` の Errors に `Plugin "dialogue-patterns" is enabled in project settings but isn't installed here` と出たら、上の install を打つか、Claude Code を更新する
+- `--scope project` を付けずに `/plugin install` すると、`~/.claude/settings.json` に書かれて全リポジトリで有効になる。付け忘れたら `claude plugin uninstall dialogue-patterns@cc-mp-test` で外し、付けて入れ直す
+- 読み込まれているかは `/plugin` の Installed で見る。install 済みなら「Project」の見出しの下に `dialogue-patterns · cc-mp-test` と出る
 
 ## 更新
 
-版は plugin.json に書かない。版はこのディレクトリのコミット SHA。main が進んだら、使う側で marketplace の clone を更新する。
+版は plugin.json に書かない。版はこのディレクトリのコミット SHA で、cache のフォルダ名にもなる。main が進んだら、使う側で打つ。
 
 ```bash
-claude plugin marketplace update cc-mp-test
+claude plugin update dialogue-patterns@cc-mp-test
 ```
 
-更新は次のセッションの立ち上げ、または `/reload-plugins` で効く。
+新しい SHA のフォルダが cache にでき、次のセッションの立ち上げから効く。
 
-`claude plugin update dialogue-patterns@cc-mp-test` は使わない。これは cache に入れた plugin を更新するコマンドで、相対パスの plugin には install 記録がない。
+`claude plugin marketplace update cc-mp-test` は marketplace の clone (`~/.claude/plugins/marketplaces/cc-mp-test/`) を進めるだけで、cache は変わらない。clone した人が install を打っていない場合は、この後にセッションを立ち上げ直すと新しい SHA がコピーされる。
 
 自動で追いたいときは、`extraKnownMarketplaces` の項目に `"autoUpdate": true` を足す。
 
 ## 手元で試す
 
-このリポジトリを変えながら試すときは、clone を更新せずに `--plugin-dir` で直接読む。
+このリポジトリを変えながら試すときは、`--plugin-dir` で直接読む。同じ名前の marketplace の plugin を置き換えるので、使う側の settings.json はそのままでよい。
 
 ```bash
 claude --plugin-dir /path/to/cc-mp-test/plugins/dialogue-patterns
 ```
+
+マージ前の branch を marketplace 経由で試すには、`claude plugin marketplace add 'sug1t0m0/cc-mp-test#<branch>' --scope project` と打つ。settings.json の source に `"ref"` が足される。試し終わったら、同じコマンドを `#<branch>` なしで打ち直して main に戻す。settings.json から `ref` を消すだけでは `~/.claude/plugins/known_marketplaces.json` に `ref` が残り、更新がその branch を追い続ける。
 
 ## 決まりを変えたいとき
 
@@ -56,5 +77,6 @@ claude --plugin-dir /path/to/cc-mp-test/plugins/dialogue-patterns
 
 ## 参考
 
+- [Install and manage plugins](https://code.claude.com/docs/en/plugins/install.md)
 - [Plugin loading reference](https://code.claude.com/docs/en/plugins/loading.md)
 - [Marketplace reference](https://code.claude.com/docs/en/plugins/marketplace-reference.md)

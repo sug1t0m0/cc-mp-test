@@ -18,6 +18,7 @@ Claude Code 開発支援プラグインの公開と配布:
 |-----------|------|
 | **session-summary** | セッションを要約・エクスポート。学びを記録し、どのプロジェクトでも使える。 |
 | **workflow-helper** | Git worktreeとWezTermを活用した並列開発ワークフロー支援ツール |
+| **dialogue-patterns** | AI エージェントとのやり取りのパターン。一つ目は questions: 設問を一つずつ番号で出し、スマートフォンで読める形で応え、設問の解説と進捗を artifact に保つ。 |
 
 ## インストール
 
@@ -34,6 +35,8 @@ Claude Code 開発支援プラグインの公開と配布:
 /plugin install session-summary@cc-mp-test
 /plugin install workflow-helper@cc-mp-test
 ```
+
+dialogue-patterns はリポジトリごとに入れる (`--scope project`)。手順は [plugins/dialogue-patterns/README.md](plugins/dialogue-patterns/README.md)。
 
 ## プラグイン詳細
 
@@ -55,6 +58,12 @@ Git worktreeとWezTermを活用した並列開発ワークフローを支援し�
 - `/workflow-helper:new-task [task-name]` - 新しいworktreeを作成し、WezTermで新ペインを開く
 - `/workflow-helper:list-tasks` - 現在のworktree一覧を表示
 - `/workflow-helper:cleanup-tasks [target]` - 完了したworktreeを削除
+
+### dialogue-patterns
+
+AI エージェントとのやり取りのパターンの入れ物。一つ目のパターン `questions` は、設問を一つずつ番号で出す決まり、スマートフォンで読める応答の形、設問の解説と進捗を保つ二つの artifact からなる。段階的に移している ([#3](https://github.com/sug1t0m0/cc-mp-test/issues/3))。
+
+入れ方と更新は [plugins/dialogue-patterns/README.md](plugins/dialogue-patterns/README.md)。
 
 ## ライセンス
 

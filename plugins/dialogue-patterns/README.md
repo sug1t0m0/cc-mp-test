@@ -2,7 +2,7 @@
 
 AI エージェントとのやり取りのパターンの入れ物。一つ目のパターン `decisions` は、設問を一つずつ番号で出す決まり、スマートフォンで読める応答の形、設問の解説と進捗を保つ二つの artifact からなる。
 
-[onramp](https://github.com/sug1t0m0/onramp) の開発で使っていた決まりを、[sug1t0m0/cc-mp-test#3](https://github.com/sug1t0m0/cc-mp-test/issues/3) で plugin に移した。
+[onramp](https://github.com/sug1t0m0/onramp) の開発で使っていた決まりを plugin にしたもの。
 
 ## 中身
 

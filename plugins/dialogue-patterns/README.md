@@ -7,7 +7,7 @@ AI エージェントとのやり取りのパターン。パターン `decisions
 どのパターンにも共通のもの。
 
 - **決まり** (`glossary.md`、`contract.md`): 語彙と、共通の約束。約束は、決まりは plugin にだけ置く、変えたいことは skill `propose-change` で出す、すべての返事と artifact の頭にヘッダーを書く、CLAUDE.md が食い違ったら言う、の四つ
-- **hook** (`hooks/hooks.json`、`hooks/session-start.sh`): セッションの始まり (resume、compact の後も) に、identity の一行と決まり (glossary.md、contract.md、パターンの dialogue.md) を Claude の文脈に流す。identity は `dialogue-patterns · decisions · <コミット SHA>` で、返事の頭の一行目に出る。SHA が版
+- **hook** (`hooks/hooks.json`、`hooks/session-start.sh`): セッションの始まり (resume、compact の後も) に、identity の一行と決まり (glossary.md、contract.md、パターンの dialogue.md) を Claude の文脈に流す。identity は `dialogue-patterns · decisions · <コミット SHA>` で、返事の頭の一行目に出る。この SHA が plugin の版
 - **skill `propose-change`** (`skills/propose-change/SKILL.md`): 決まりを変えたいときの流れ。下の「決まりを変えたいとき」
 
 パターン `decisions` のもの。
@@ -63,7 +63,7 @@ claude plugin install dialogue-patterns@cc-mp-test --scope project
 
 ### 注意
 
-- `/plugin` の Errors に `Plugin "dialogue-patterns" is enabled in project settings but isn't installed here` と出たら、上の install を打つ
+- `/plugin` の Errors に `Plugin "dialogue-patterns" is enabled in project settings but isn't installed here` と出たら、上の install を打つ。それでも出るなら Claude Code を更新する
 - `--scope project` を付けずに `/plugin install` すると、`~/.claude/settings.json` に書かれて全リポジトリで有効になる。付け忘れたら `claude plugin uninstall dialogue-patterns@cc-mp-test` で外し、付けて入れ直す
 - 読み込まれているかは `/plugin` の Installed で見る。install 済みなら「Project」の見出しの下に `dialogue-patterns · cc-mp-test` と出る
 - 効いているかは、返事の頭の一行目で見る。`dialogue-patterns · decisions · <SHA>` が出ていれば hook が動いていて、SHA が今の版

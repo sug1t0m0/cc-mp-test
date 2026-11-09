@@ -13,11 +13,6 @@
       "description": "セッションを要約・エクスポート。学びを記録し、どのプロジェクトでも使える。"
     },
     {
-      "name": "workflow-helper",
-      "source": "./plugins/workflow-helper",
-      "description": "Git worktreeとWezTermを活用した並列開発ワークフロー支援ツール"
-    },
-    {
       "name": "dialogue-patterns",
       "source": "./plugins/dialogue-patterns",
       "description": "AI エージェントとのやり取りのパターン decisions: 設問を一つずつ番号で出し、スマートフォンで読める形で応え、設問の解説と進捗を artifact に保つ。"

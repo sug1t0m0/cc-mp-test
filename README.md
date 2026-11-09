@@ -61,7 +61,7 @@ Git worktreeとWezTermを活用した並列開発ワークフローを支援し�
 
 ### dialogue-patterns
 
-AI エージェントとのやり取りのパターンの入れ物。一つ目のパターン `decisions` は、設問を一つずつ番号で出す決まり、スマートフォンで読める応答の形、設問の解説と進捗を保つ二つの artifact からなる。段階的に移している ([#3](https://github.com/sug1t0m0/cc-mp-test/issues/3))。
+AI エージェントとのやり取りのパターンの入れ物。一つ目のパターン `decisions` は、設問を一つずつ番号で出す決まり、スマートフォンで読める応答の形、設問の解説と進捗を保つ二つの artifact からなる。決まりは plugin にだけ置き、使う側のリポジトリには写さない。経緯は [#3](https://github.com/sug1t0m0/cc-mp-test/issues/3)。
 
 入れ方と更新は [plugins/dialogue-patterns/README.md](plugins/dialogue-patterns/README.md)。
 

@@ -6,7 +6,10 @@ AI エージェントとのやり取りのパターンの入れ物。一つ目�
 
 ## 中身
 
-- **output style `decisions`** (`output-styles/decisions.md`): スマートフォンで読みやすい応答の形。短い文、階層の番号、幅に収まる図と表。`force-for-plugin: true` なので、この plugin が有効なリポジトリでは自動で適用される。settings.json の `outputStyle` に別の style が書いてあっても、system prompt に入るのはこの style (Claude Code v2.1.289 で確認)。`/output-style` の表示は settings の値を映すだけなので、`default` や別の名前が出ていても適用されている。使う側の settings.json に `outputStyle` があれば消してよい
+- **output style `decisions`** (`output-styles/decisions.md`): スマートフォンで読みやすい応答の形。短い文、階層の番号、幅に収まる図と表。`force-for-plugin: true` なので、この plugin が有効なリポジトリでは自動で適用され、settings.json の `outputStyle` に別の style が書いてあっても、この style が優先される (docs の `force-for-plugin` の説明のとおり)。使う側の settings.json に `outputStyle` があれば消してよい
+  - 外すには、この plugin を無効にする。`/output-style` で別の style を選んでも、この style が入る
+  - ほかの有効な plugin にも `force-for-plugin: true` の style があると、最初に読まれた一つだけが効く
+  - Claude Code v2.1.289 では、`/output-style` の表示は settings の値のままで、`default` や別の名前が出ていてもこの style が system prompt に入っている。表示は版で変わりうるので、効いているかは応答の形で見る
 - **skill `decision-artifacts`** (`skills/decision-artifacts/SKILL.md`): 設問を出すセッションで、今の設問の解説とセッションの進捗の二つの artifact を保つ
 
 ## 入れ方

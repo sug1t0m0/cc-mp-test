@@ -16,7 +16,7 @@ description: やり取りの決まり (plugin dialogue-patterns の語彙、共�
 ## 流れ
 1. 変える所と理由をまとめる。identity (返事のヘッダーの一行目。どの版の決まりの話か) を添える。まとめは、何の話か、何を変えるか、なぜ変えるか、before / after の順。決まりの書き方は下のとおり
 2. まとめをユーザーに見せ、出すかどうかを設問として聞く。出すと決まったら、sug1t0m0/cc-mp-test に issue を立てる。本文はまとめそのまま
-3. GitHub の道具 (GitHub MCP、または `gh`) が使えて、ユーザーが頼めば、PR を出す。branch を作り、`plugins/dialogue-patterns/` の該当ファイルを直し、本文に `Closes #<issue 番号>` を書く。道具が使えなければ、そう言って issue までで止める
+3. GitHub の道具 (GitHub MCP、または `gh`) が使えて、ユーザーが頼めば、PR を出す。一時ディレクトリに sug1t0m0/cc-mp-test を clone し、branch を作り、`plugins/dialogue-patterns/` の該当ファイルを直して push する。clone できず GitHub MCP だけなら、push_files で branch に直接書く。本文に `Closes #<issue 番号>` を書く。道具が使えなければ、そう言って issue までで止める
 4. 使う側で打つ更新コマンドを案内する。main に入った後、使う側のリポジトリで `claude plugin update dialogue-patterns@cc-mp-test` を打ち、Claude Code を立ち上げ直す。新しい版は identity の SHA で分かる
 
 ## 決まりの書き方

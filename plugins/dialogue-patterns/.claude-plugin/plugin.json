@@ -1,4 +1,4 @@
 {
   "name": "dialogue-patterns",
-  "description": "AI エージェントとのやり取りのパターン。一つ目は decisions: 設問を一つずつ番号で出し、スマートフォンで読める形で応え、設問の解説と進捗を artifact に保つ。"
+  "description": "AI エージェントとのやり取りのパターン decisions: 設問を一つずつ番号で出し、スマートフォンで読める形で応え、設問の解説と進捗を artifact に保つ。"
 }
